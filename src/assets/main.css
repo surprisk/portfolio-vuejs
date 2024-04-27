@@ -1,0 +1,63 @@
+:root {
+  --background-color: 255, 251, 245;
+
+  --font-color: 33, 47, 61;
+
+  --border-color: 98, 114, 84;
+  --item-color: 24, 18, 43;
+  --link-color: 24, 18, 43;
+
+  --nav-background: 119, 67, 219;
+  --nav-color: 255, 251, 245;
+  --nav-active: 247, 239, 229;
+
+  --gradient-primary: 119, 67, 219;
+  --gradient-secondary: 195, 172, 208;
+  --gradient-third: 255, 251, 245;
+
+  --card-background: 247, 239, 229;
+
+  --parcours-dot-primary: 119, 67, 219;
+  --parcours-dot-secondary: 195, 172, 208;
+
+  --font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu;
+  --banner-color: 255, 251, 245;
+
+  --footer-background: 119, 67, 219;
+  --footer-color: 255, 251, 245;
+  --footer-active: 247, 239, 229;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: var(--font-family);
+}
+
+body {
+  background-color: rgb(var(--background-color));
+}
+
+a {
+  color: rgb(var(--link-color));
+}
+
+[data-theme='dark'] {
+  --font-color: 0, 0, 61;
+  --link-color: 0, 0, 61;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 32px;
+}
+
+.icon-align {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
