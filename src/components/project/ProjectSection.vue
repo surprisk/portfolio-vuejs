@@ -18,7 +18,8 @@ export default {
               color: 'green',
               name: 'NodeJS'
             }
-          ]
+          ],
+          route: { name: 'Anycoast' }
         },
         {
           image: {
@@ -30,7 +31,8 @@ export default {
               color: 'green',
               name: 'NodeJS'
             }
-          ]
+          ],
+          route: { name: 'Anycoast' }
         }
       ]
     }
@@ -40,11 +42,11 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container section">
     <h2 class="home-title">💻 Projets</h2>
     <searchbar></searchbar>
     <div class="projects">
-      <projectComponent v-for="p in projects" :key="p">
+      <projectComponent v-for="p in projects" :key="p" @click="$router.push(p.route)">
         <template #image>
           <img v-if="p.image.src" v-bind="p.image" />
           <p v-else>Aucune image</p>

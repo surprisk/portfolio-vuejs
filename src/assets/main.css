@@ -20,8 +20,13 @@
   --parcours-dot-primary: 119, 67, 219;
   --parcours-dot-secondary: 195, 172, 208;
 
+  --project-nav: 119, 67, 219;
+  --project-active: 195, 172, 208;
+
   --font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu;
   --banner-color: 255, 251, 245;
+
+  --contact-background: 247, 239, 229;
 
   --footer-background: 119, 67, 219;
   --footer-color: 255, 251, 245;
@@ -33,7 +38,6 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  list-style: none;
   font-family: var(--font-family);
 }
 
@@ -54,6 +58,10 @@ a {
   max-width: 1200px;
   margin: auto;
   padding: 32px;
+}
+
+.section {
+  padding-bottom: 128px;
 }
 
 .icon-align {

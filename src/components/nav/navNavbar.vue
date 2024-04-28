@@ -74,12 +74,8 @@ export default {
 
 .navbar .navbar-menu ul {
   display: flex;
-  gap: 32px;
-}
-
-.navbar .navbar-menu ul {
-  display: flex;
   gap: 40px;
+  list-style: none;
 }
 
 .navbar :is(.navbar-menu ul li a, a) {

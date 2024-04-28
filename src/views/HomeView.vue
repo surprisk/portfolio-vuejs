@@ -17,6 +17,20 @@ export default {
       return this.talents[this.talentHandler]
     }
   },
+  methods: {
+    scrollToAnElement(element) {
+      const elementDOM = document.querySelector(element)
+      const barDOM = document.querySelector('nav.navbar')
+
+      const elementTop = elementDOM.getBoundingClientRect().top
+      const barHeight = barDOM.offsetHeight
+
+      window.scrollTo({
+        top: window.scrollY + elementTop - barHeight,
+        behavior: 'smooth'
+      })
+    }
+  },
   created() {
     setInterval(() => {
       this.talentHandler >= this.talents.length - 1
@@ -33,7 +47,7 @@ export default {
       <p>Samuel Brosse</p>
       <p>{{ this.getCurrentTalent }}</p>
     </div>
-    <div class="mouse"></div>
+    <div class="mouse" @click="scrollToAnElement('#a_propos_section')"></div>
   </div>
   <main>
     <a_propos />
@@ -64,6 +78,8 @@ export default {
   color: rgb(var(--banner-color));
   text-align: center;
   animation: 5s linear 2s infinite alternate banner;
+
+  margin-bottom: 128px;
 }
 
 .home-banner .banner-content p:first-child {
@@ -85,6 +101,7 @@ export default {
   height: 70px;
   border: 3px solid rgb(var(--banner-color));
   border-radius: 60px;
+  cursor: pointer;
   &::before {
     content: '';
     width: 10px;
@@ -134,7 +151,6 @@ export default {
 }
 
 .home-title {
-  margin-top: 96px;
   margin-bottom: 64px;
 }
 </style>

@@ -7,9 +7,16 @@ export default {
 </script>
 
 <template>
-  <div class="container">
-    <h2 class="home-title">📨 Contact</h2>
+  <div class="contact-section-wrapper section">
+    <div class="container">
+      <h2 class="home-title">📨 Contact</h2>
+      <div class="contact"></div>
+    </div>
   </div>
 </template>
 
-<style></style>
+<style>
+.contact-section-wrapper {
+  background-color: rgb(var(--contact-background));
+}
+</style>

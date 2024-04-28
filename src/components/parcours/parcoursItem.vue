@@ -1,7 +1,22 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      state: false
+    }
+  },
+  props: {
+    position: {
+      type: Number,
+      required: true
+    }
+  },
+  watch: {
+    state: {
+      handler(s) {
+        this.$emit('timebar', this.position, s)
+      }
+    }
   }
 }
 </script>
@@ -9,8 +24,17 @@ export default {
 <template>
   <div class="parcours-item-line">
     <div class="parcours-item-wrapper">
-      <div class="parcours-item">hello</div>
+      <Transition name="slide-fade">
+        <div class="parcours-item" v-show="this.state">
+          <slot name="content"></slot>
+        </div>
+      </Transition>
+      <span class="date-dot" :class="{ active: state }" @click="this.state = !this.state"></span>
     </div>
+    <span class="item-date">
+      <slot name="date"></slot>
+    </span>
+    <slot name="timebar"></slot>
   </div>
 </template>
 
@@ -19,10 +43,10 @@ export default {
   z-index: 2;
   display: flex;
   position: relative;
+  align-items: center;
 }
 
-.parcours-item-line::after {
-  content: '';
+.parcours-item-line .parcours-item-wrapper .date-dot {
   width: 18px;
   height: 18px;
   border-radius: 9px;
@@ -33,22 +57,28 @@ export default {
   transform: translate(-50%, -50%);
 }
 
-.parcours-item-line:hover::after {
+.parcours-item-line .parcours-item-wrapper :is(.date-dot:hover, .date-dot.active) {
   cursor: pointer;
   width: 25px;
   height: 25px;
+  transition: 0.1s ease;
 }
 
-.parcours-item-line::before {
+.parcours-item-line .parcours-item-wrapper :is(.date-dot:hover, .date-dot.active)::before {
+  opacity: 0;
+}
+
+.parcours-item-line .parcours-item-wrapper .date-dot::before {
   content: '';
   border: 1px rgb(var(--parcours-dot-secondary)) solid;
   left: 50%;
   top: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
-  animation: 1s test 2s ease-out infinite;
-  -webkit-animation: 1s test 2s ease-out infinite;
+  animation: test 1s ease-out infinite;
+  -webkit-animation: test 1s ease-out infinite;
   border-radius: 20px;
+  opacity: 1;
 }
 
 @keyframes test {
@@ -86,5 +116,25 @@ export default {
 
 .parcours-item-line:nth-child(even) {
   justify-content: end;
+  flex-direction: row-reverse;
+}
+
+.parcours-item-line span.item-date {
+  padding: 32px;
+  font-weight: bold;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
 }
 </style>

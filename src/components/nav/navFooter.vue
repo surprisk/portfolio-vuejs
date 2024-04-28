@@ -9,7 +9,8 @@ export default {
 <template>
   <footer class="footer">
     <div class="container">
-      © {{ Date.now() }} Création & Développement Samuel BROSSE | Tous droits réservés
+      © {{ new Date().getFullYear() }} Création & Développement par Samuel BROSSE | Tous droits
+      réservés
     </div>
   </footer>
 </template>
@@ -18,5 +19,7 @@ export default {
 .footer {
   width: 100vw;
   background: rgb(var(--footer-background));
+  text-align: center;
+  color: rgb(var(--footer-color));
 }
 </style>

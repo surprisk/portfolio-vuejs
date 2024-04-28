@@ -7,7 +7,7 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div id="a_propos_section" class="container section">
     <h2 class="home-title">🙎🏼 A propos</h2>
     <div class="a-propos">
       <div class="a-propos-image">
