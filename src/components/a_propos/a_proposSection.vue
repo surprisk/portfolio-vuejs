@@ -2,6 +2,19 @@
 export default {
   data() {
     return {}
+  },
+  methods: {
+    getYearFromDate(date){
+      return Math.floor((new Date() - new Date(date).getTime()) / 3.15576e+10)
+    }
+  },
+  computed: {
+    getAge(){
+      return this.getYearFromDate("2000-02-04");
+    },
+    getArrival(){
+      return this.getYearFromDate("2021-06-01");
+    }
   }
 }
 </script>
@@ -18,14 +31,14 @@ export default {
       <div class="a-propos-content">
         <h3>L'informatique, de la magie à la passion</h3>
         <p class="a-propos-text">
-          Je m'appelle Samuel, j'ai 24 ans cela fait maintenant 3ans que je suis arrivé dans le
-          finistère et je vais vous raconter brièvement comment je suis me suis prie d'affection
+          Je m'appelle Samuel, j'ai {{ this.getAge }} ans cela fait maintenant {{ this.getArrival }} ans que je suis arrivé dans le
+          finistère et je vais vous raconter brièvement comment je suis me suis pris d'affection
           pour le développement d'applications web. Au départ ce n'était pas gagné, j'ai grandi loin
-          des ordinateurs et des jeux vidéos. Avant de passer mon baccalauréat, je pensais que
-          travail rimait avec ennuie mortel. Ne sachant pas ce que je souhaitais faire, j'ai écumé
+          des ordinateurs et des jeux vidéo. Avant de passer mon baccalauréat, je pensais que
+          travail rimait avec ennui mortel. Ne sachant pas ce que je souhaitais faire, j'ai écumé
           bon nombre de salons de l'étudiant, mais aucune filière ne me m'attirait vraiment. Mon
           choix s'est finalement porté sur un BTS SIO, après tout, je n'étais pas mauvais avec un
-          clavier sur les jeux vidéo. Et c'est là que j'ai compris. Depuis ce jour, le développement
+          clavier sur les jeux vidéo. Et c'est là que j'ai compris que le travail pouvait être ludique. Depuis ce jour, le développement
           d'applications web fait parti de mes nombreuses passions que je pratique quotidiennement,
           notamment entre deux sessions de jeu ;)
         </p>

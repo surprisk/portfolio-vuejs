@@ -28,6 +28,12 @@ export default {
           </div>
           <a class="contact-link" href="https://www.linkedin.com/in/samuel-brosse-web/">linkedin.com/in/samuel-brosse-web</a>
         </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <IconLucide icon="Github"></IconLucide> Github
+          </div>
+          <a class="contact-link" href="https://github.com/surprisk">github.com/surprisk</a>
+        </div>
       </div>
     </div>
   </div>
@@ -36,6 +42,10 @@ export default {
 <style>
 .contact-section-wrapper {
   background-color: rgb(var(--contact-background));
+}
+
+.contact-section-wrapper .home-title{
+  margin-bottom: 128px;
 }
 
 .contact{
@@ -52,15 +62,21 @@ export default {
   align-items: center;
   gap: 8px;
   margin-bottom: 16px;
+  user-select: none;
 }
 
 .contact .contact-item{
-  min-width: 350px;
+  min-width: 325px;
   text-align: center;
   transition: .1s ease-out;
 }
 
 .contact .contact-item:hover{
   transform: scale(1.05);
+}
+
+.contact .contact-item:hover > a.contact-link{
+  transition: .1s ease-out;
+  color: rgb(var(--contact-link));
 }
 </style>

@@ -3,6 +3,7 @@ import searchbar from '@/components/project/projectSearchbar.vue'
 import projectComponent from '@/components/project/ProjectComponent.vue'
 import projectTag from '@/components/project/ProjectTag.vue'
 import projectFilter from '@/components/project/ProjectFilter.vue'
+import IconLucide from '../icons/IconLucide.vue'
 import { projects, tags } from '@/assets/database.json';
 
 export default {
@@ -30,7 +31,7 @@ export default {
       .filter(p => p.title.toLowerCase().trim().includes(this.searchText) && (!this.filterList.length > 0 || p.tags.some(t => this.filterList.includes(this.tags[t]))))
     }
   },
-  components: { searchbar, projectFilter, projectComponent, projectTag }
+  components: { searchbar, projectFilter, projectComponent, projectTag, IconLucide }
 }
 </script>
 
@@ -43,7 +44,7 @@ export default {
       <projectComponent v-for="p in this.getProjectsHandled" :key="p" @click="$router.push(p.route)">
         <template #image>
           <img v-if="p.image.src" v-bind="p.image" />
-          <p v-else>Aucune image</p>
+          <p v-else><IconLucide icon="FolderClosed" iconSize="2em" widthStroke="2px"/></p>
         </template>
         <template #title>{{ p.title }}</template>
         <template #tag>

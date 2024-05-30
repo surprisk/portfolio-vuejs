@@ -5,7 +5,7 @@
         "content":[
            {
               "logo":{
-                 "src":"https://www.grouperandstad.fr/wp-content/uploads/2023/08/image-a-mettre-en-avant-2.png",
+                 "src":"/src/assets/experiences/logo-randstaddigital.png",
                  "alt":"Logo Randstad Digital"
               },
               "title":"Développeur web VueJS",
@@ -35,7 +35,7 @@
         "content":[
            {
               "logo":{
-                 "src":"https://nd2d.fr/wp-content/uploads/2021/03/Sans-titre-19-1024x1024.png",
+                 "src":"/src/assets/experiences/logo-creditmutuelarkea.webp",
                  "alt":"Logo Crédit Mutuel Arkéa"
               },
               "title":"Chef de projet transverse",
@@ -57,7 +57,7 @@
         "content":[
            {
               "logo":{
-                 "src":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_xUKlRkqekcyAfnVqTxH4vYKUfUrEBUltbfKZz7l_xQ&s",
+                 "src":"/src/assets/experiences/logo-netao.png",
                  "alt":"Logo Netao"
               },
               "title":"Développeur web",
@@ -85,7 +85,7 @@
         "content":[
            {
               "logo":{
-                 "src":"https://www.promo-matelas.com/matelas/vecto-logo-promo-matelas-02.png",
+                 "src":"/src/assets/experiences/logo-promomatelas.png",
                  "alt":"Logo Promo-matelas"
               },
               "title":"Développeur web",
@@ -110,7 +110,7 @@
            },
            {
             "logo":{
-               "src":"https://www.villedebelleme.fr/wp-content/uploads/2019/10/logo-enedis.png",
+               "src":"/src/assets/experiences/logo-enedis.png",
                "alt":"Logo Enedis"
             },
             "title":"Développeur web",
@@ -130,7 +130,7 @@
         "content":[
            {
               "logo":{
-                 "src":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4qwoK9i4sG4RQj7dgzaMjSanKbKexWNnWkntaaxzcdg&s",
+                 "src":"/src/assets/experiences/logo-sipej.jpg",
                  "alt":"Logo SIPEJ"
               },
               "title":"Développeur web",
@@ -153,7 +153,7 @@
     {
       "content": {
         "logo":{
-          "src":"https://image-parcours.copainsdavant.com/image/750/1760127760/4147743.png",
+          "src":"/src/assets/schools/logo-lyceeparcdesloges.webp",
           "alt":"Logo Lycée Parc des Loges"
         },
         "title":"BTS Services Informatiques aux Organisations",
@@ -173,7 +173,7 @@
     {
       "content": {
         "logo":{
-          "src":"https://prepeersstorage.blob.core.windows.net/academic/490_logo.png?sp=r&st=2024-01-03T11:28:21Z&se=2025-01-31T19:28:21Z&spr=https&sv=2022-11-02&sr=c&sig=H6W7YpbU178JsAjkwJuor8awOX2oYTbeOzJ8CYimR44%3D",
+          "src":"/src/assets/schools/logo-mydigitalschool.png",
           "alt":"Logo MyDigitalSchool"
         },
         "title":"Bachelor Développeur web et mobile",
@@ -193,7 +193,7 @@
     {
       "content": {
         "logo":{
-          "src":"https://leklub-brest.bzh/wp-content/uploads/logo-brestopencampus.png",
+          "src":"/src/assets/schools/logo-brestopencampus.png",
           "alt":"Logo Brest Open Campus"
         },
         "title":"Mastère Manager de projets innovants",
@@ -235,6 +235,18 @@
     {
       "color":"rgb(8, 8, 8)",
       "name":"Symfony"
+    },
+    {
+      "color":"rgb(8, 8, 8)",
+      "name":"MySQL"
+    },
+    {
+      "color":"rgb(8, 8, 8)",
+      "name":"MongoDB"
+    },
+    {
+      "color":"rgb(8, 8, 8)",
+      "name":"Linux"
     }
   ],
   "projects": [
@@ -243,17 +255,62 @@
         "class": "cover",
         "src": "https://img.freepik.com/free-photo/sunset-silhouettes-trees-mountains-generative-ai_169016-29371.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1714003200&semt=ais"
       },
+      "title": "Jaxa",
+      "tags": [4],
+      "route": { "name": "Jaxa" }
+    },
+    {
+      "image": {
+        "class": "cover",
+        "src": "https://img.freepik.com/free-photo/sunset-silhouettes-trees-mountains-generative-ai_169016-29371.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1714003200&semt=ais"
+      },
       "title": "Anycoast",
-      "tags": [0],
+      "tags": [4],
       "route": { "name": "Anycoast" }
     },
     {
       "image": {
         "class": "cover"
       },
-      "title": "Fullycoast",
-      "tags": [0],
-      "route": { "name": "Anycoast" }
+      "title": "SavEat",
+      "tags": [0, 1, 3, 4, 6],
+      "route": { "name": "SavEat" }
+    },
+    {
+      "image": {
+        "class": "cover",
+        "src": "https://img.freepik.com/free-photo/sunset-silhouettes-trees-mountains-generative-ai_169016-29371.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1714003200&semt=ais"
+      },
+      "title": "QuerYT",
+      "tags": [4],
+      "route": { "name": "QuerYT" }
+    },
+    {
+      "image": {
+        "class": "cover",
+        "src": "https://img.freepik.com/free-photo/sunset-silhouettes-trees-mountains-generative-ai_169016-29371.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1714003200&semt=ais"
+      },
+      "title": "BirdAPI",
+      "tags": [4],
+      "route": { "name": "BirdAPI" }
+    },
+    {
+      "image": {
+        "class": "cover",
+        "src": "https://img.freepik.com/free-photo/sunset-silhouettes-trees-mountains-generative-ai_169016-29371.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1714003200&semt=ais"
+      },
+      "title": "NodeJSON",
+      "tags": [0, 1, 2, 4],
+      "route": { "name": "NodeJSON" }
+    },
+    {
+      "image": {
+        "class": "cover",
+        "src": "https://img.freepik.com/free-photo/sunset-silhouettes-trees-mountains-generative-ai_169016-29371.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1714003200&semt=ais"
+      },
+      "title": "Serveur Linux Maison",
+      "tags": [8],
+      "route": { "name": "Homelab" }
     }
   ]
 }
