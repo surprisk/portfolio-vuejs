@@ -107,7 +107,22 @@
                  "Création d'un outil d'import/export des produits via fichier Excel.",
                  "Maintenance du site existant en php."
               ]
-           }
+           },
+           {
+            "logo":{
+               "src":"https://www.villedebelleme.fr/wp-content/uploads/2019/10/logo-enedis.png",
+               "alt":"Logo Enedis"
+            },
+            "title":"Développeur web",
+            "date":"1mois - 2020 - Stage",
+            "subtitle":"Enedis, Noisy-Le-Grand",
+            "description":[
+               "Maintenance du site intranet.",
+               "Création de modules applicatifs et utilisation de fichiers json (affichage de données et de graphiques).",
+               "Gestion de la base de données.",
+               "Utilisation des langages : JavaScript(Ajax), PHP Poo, SQL et framework bootstrap."
+            ]
+         }
         ]
      },
      {
@@ -194,6 +209,51 @@
         "",
         ""
      ]
+    }
+  ],
+  "tags": [
+    {
+      "color":"rgb(229, 83, 44)",
+      "name":"HTML"
+    },
+    {
+      "color":"rgb(61, 157, 215)",
+      "name":"CSS"
+    },
+    {
+      "color":"rgb(248, 224, 38)",
+      "name":"Javascript"
+    },
+    {
+      "color":"rgb(72, 186, 135)",
+      "name":"VueJS"
+    },
+    {
+      "color":"rgb(148, 199, 70)",
+      "name":"NodeJS"
+    },
+    {
+      "color":"rgb(8, 8, 8)",
+      "name":"Symfony"
+    }
+  ],
+  "projects": [
+    {
+      "image": {
+        "class": "cover",
+        "src": "https://img.freepik.com/free-photo/sunset-silhouettes-trees-mountains-generative-ai_169016-29371.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1714003200&semt=ais"
+      },
+      "title": "Anycoast",
+      "tags": [0],
+      "route": { "name": "Anycoast" }
+    },
+    {
+      "image": {
+        "class": "cover"
+      },
+      "title": "Fullycoast",
+      "tags": [0],
+      "route": { "name": "Anycoast" }
     }
   ]
 }

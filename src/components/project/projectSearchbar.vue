@@ -1,8 +1,15 @@
 <script>
-export default {}
+import IconLucide from '@/components/icons/IconLucide.vue';
+
+export default {
+  components: {
+    IconLucide
+  }
+}
 </script>
 <template>
-  <div class="project-search-bar">
+  <div class="project-search-bar" @input="$emit('onSearch', $event)">
+    <div class="icon-align"><IconLucide icon="Search" widthStroke="2px" />Recherche et filtres</div>
     <input type="text" />
   </div>
 </template>
@@ -11,7 +18,7 @@ export default {}
 .project-search-bar {
   max-width: 600px;
   position: relative;
-  margin-bottom: 32px;
+  margin: auto auto 16px auto;
 }
 
 input {

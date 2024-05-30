@@ -21,4 +21,9 @@ export default {
   padding: 2px 16px;
   border-radius: 8px;
 }
+
+.tag.tag-button:is(:hover, .active){
+  background-color: v-bind(color);
+  color: rgb(var(--background-color));
+}
 </style>

@@ -2,61 +2,55 @@
 import searchbar from '@/components/project/projectSearchbar.vue'
 import projectComponent from '@/components/project/ProjectComponent.vue'
 import projectTag from '@/components/project/ProjectTag.vue'
+import projectFilter from '@/components/project/ProjectFilter.vue'
+import { projects, tags } from '@/assets/database.json';
 
 export default {
   data() {
     return {
-      projects: [
-        {
-          image: {
-            class: 'cover',
-            src: 'https://img.freepik.com/free-photo/sunset-silhouettes-trees-mountains-generative-ai_169016-29371.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1714003200&semt=ais'
-          },
-          title: 'Anycoast',
-          tags: [
-            {
-              color: 'green',
-              name: 'NodeJS'
-            }
-          ],
-          route: { name: 'Anycoast' }
-        },
-        {
-          image: {
-            class: 'cover'
-          },
-          title: 'Anycoast',
-          tags: [
-            {
-              color: 'green',
-              name: 'NodeJS'
-            }
-          ],
-          route: { name: 'Anycoast' }
-        }
-      ]
+      tags: tags,
+      searchText: '',
+      filterList: [],
     }
   },
-  components: { searchbar, projectComponent, projectTag }
+  methods: {
+    searchHandler(e) {
+      this.searchText = e.target.value.toLowerCase().trim();
+    },
+    filterHandler(position, state){
+      if(state) this.filterList.push(this.tags[position])
+      else this.filterList = this.filterList.filter(f => f != this.tags[position])
+    }
+  },
+  computed: {
+    getProjectsHandled(){
+      let deepProjects = [...projects]
+
+      return deepProjects
+      .filter(p => p.title.toLowerCase().trim().includes(this.searchText) && (!this.filterList.length > 0 || p.tags.some(t => this.filterList.includes(this.tags[t]))))
+    }
+  },
+  components: { searchbar, projectFilter, projectComponent, projectTag }
 }
 </script>
 
 <template>
   <div class="container section">
     <h2 class="home-title">💻 Projets</h2>
-    <searchbar></searchbar>
-    <div class="projects">
-      <projectComponent v-for="p in projects" :key="p" @click="$router.push(p.route)">
+    <searchbar @onSearch="searchHandler" />
+    <projectFilter :tags="this.tags" @onFilter="filterHandler" />
+    <TransitionGroup name="projects" tag="div" class="projects">
+      <projectComponent v-for="p in this.getProjectsHandled" :key="p" @click="$router.push(p.route)">
         <template #image>
           <img v-if="p.image.src" v-bind="p.image" />
           <p v-else>Aucune image</p>
         </template>
         <template #title>{{ p.title }}</template>
         <template #tag>
-          <projectTag v-for="t in p.tags" :key="t" :color="t.color">{{ t.name }}</projectTag>
+          <projectTag v-for="t in p.tags" :key="t" :color="this.tags[t].color">{{ this.tags[t].name }}</projectTag>
         </template>
       </projectComponent>
-    </div>
+    </TransitionGroup>
   </div>
 </template>
 
@@ -66,5 +60,15 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 32px;
+}
+
+.projects-enter-active,
+.projects-leave-active {
+  transition: all 0.5s ease;
+}
+.projects-enter-from,
+.projects-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
 }
 </style>
