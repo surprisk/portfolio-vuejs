@@ -9,10 +9,10 @@ export default {
     return {
       timebar: {
         current: [],
-        history: []
+        history: [],
+        state: []
       },
       db: database,
-      parcours: database.parcours
     }
   },
   components: {
@@ -22,12 +22,19 @@ export default {
   },
   methods: {
     timebarHandler(position, state) {
-      if (state) this.timebar.history.push(position)
-      else this.timebar.history = this.timebar.history.filter((p) => p != position)
+      if(this.timebar.history.length > 0)
+        this.timebar.state[this.timebar.history.pop()] = false
+
+      this.timebar.state[position] = !state
+      this.timebar.history.push(position)
 
       this.timebar.current =
-        this.parcours[this.timebar.history[this.timebar.history.length - 1]]?.timebar ?? []
+        !state ? this.db.schools[position]?.timebar : []
     }
+  },
+  mounted(){
+    for (let index = 0; index < this.db.schools.length; index++)
+      this.timebar.state.push(false)
   }
 }
 </script>
@@ -37,32 +44,26 @@ export default {
     <h2 class="home-title">🚩 Parcours</h2>
     <div class="parcours">
       <item
-        v-for="(p, i) in parcours"
+        v-for="(p, i) in this.db.parcours"
         :key="p"
         :id="`experience_${p.date}`"
         @timebar="timebarHandler"
         :position="i"
+        :hasContent="!!p.content"
       >
         <template #content>
           <experience v-for="c in p.content" :key="c" :e="c"/>
         </template>
         <template #date>{{ p.date }}</template>
-        <template #timebar
-          ><span class="timebar" :class="[this.timebar.current[i]]"></span
-        ></template>
+        <template #timebar>
+          <span class="timebar" :class="[this.timebar.current[i]]"></span>
+        </template>
       </item>
       <span class="start-dot"></span>
       <span class="end-dot"></span>
     </div>
     <div class="schools">
-      <school v-for="s in this.db.schools" :key="s">
-        <template #logo>
-          <img v-bind="s.content.logo" />
-        </template>
-        <template #title>{{ s.content.title }}</template>
-        <template #date>{{ s.content.date }}</template>
-        <template #subtitle> {{ s.content.subtitle }}</template>
-      </school>
+      <school v-for="c, i in this.db.schools" :key="c" :s="c.content" :position="i" @timebar="timebarHandler" :state="this.timebar.state[i]"/>
     </div>
   </div>
 </template>

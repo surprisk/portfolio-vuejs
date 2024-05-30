@@ -2,20 +2,17 @@
 export default {
   data() {
     return {
-      state: false
+      state: this.hasContent ? false : true
     }
   },
   props: {
     position: {
       type: Number,
       required: true
-    }
-  },
-  watch: {
-    state: {
-      handler(s) {
-        this.$emit('timebar', this.position, s)
-      }
+    },
+    hasContent: {
+      type: Boolean,
+      required: true,
     }
   }
 }
@@ -24,12 +21,12 @@ export default {
 <template>
   <div class="parcours-item-line">
     <div class="parcours-item-wrapper">
-      <Transition name="slide-fade">
+      <Transition name="slide-fade" v-if="hasContent">
         <div class="parcours-item" v-show="this.state">
           <slot name="content"></slot>
         </div>
       </Transition>
-      <span class="date-dot" :class="{ active: state }" @click="this.state = !this.state"></span>
+      <span class="date-dot" :class="{ active: state }" @click="!this.hasContent || (this.state = !this.state)"></span>
     </div>
     <span class="item-date">
       <slot name="date"></slot>

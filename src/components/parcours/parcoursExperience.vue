@@ -23,7 +23,7 @@ export default {
       <p class="experience-title">
         {{ this.e.title }}
       </p>
-      <p class="experience-date">({{ this.e.date }})</p>
+      <p class="experience-date">{{ this.e.date }}</p>
       <p class="experience-subtitle">{{ this.e.subtitle }}</p>
       <ul class="experience-description">
         <li v-for="d in this.e.description" :key="d">{{ d }}</li>

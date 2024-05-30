@@ -2,25 +2,46 @@
 export default {
   data() {
     return {
-      state: false
+      
     }
-  }
+  },
+  props: {
+    state: {
+      type: Boolean,
+      default: false,
+    },
+    position: {
+      type: Number,
+      required: true
+    },
+    s: {
+      type: Object,
+      required: true,
+    }
+  },
+  // watch: {
+  //   state: {
+  //     handler(s) {
+  //       this.$emit('timebar', this.position, s)
+  //     }
+  //   }
+  // }
 }
 </script>
 
 <template>
-  <div class="school">
+  <div class="school" :class="{ active: state }" @click="this.$emit('timebar', this.position, state)">
     <div class="school-logo">
-      <slot name="logo"></slot>
+      <img v-bind="s.logo" />
     </div>
     <p class="school-title">
-      <slot name="title"></slot>
+      {{ s.title }}
     </p>
     <p class="school-date">
-      <slot name="date"></slot>
+      {{ s.date }}
     </p>
     <p class="school-subtitle">
-      <slot name="subtitle"></slot>
+      {{ s.subtitle }}
     </p>
   </div>
 </template>
@@ -37,8 +58,8 @@ export default {
   cursor: pointer
 }
 
-.school:hover {
-  background-color: rgba(0, 0, 0, .1);
+.school:is(:hover, .active) {
+  background-color: rgba(var(--parcours-active-item), .1);
 }
 
 .school .school-logo {

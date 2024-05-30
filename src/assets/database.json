@@ -28,15 +28,6 @@
                  "Développement de la brique de connexion."
               ]
            }
-        ],
-        "timebar":[
-           "upper",
-           "",
-           "",
-           "",
-           "",
-           "",
-           ""
         ]
      },
      {
@@ -59,15 +50,6 @@
                  "Refonte de l'espace documentaire commun à la factory sur la plateforme Confluence."
               ]
            }
-        ],
-        "timebar":[
-           "lower",
-           "upper",
-           "",
-           "",
-           "",
-           "",
-           ""
         ]
      },
      {
@@ -96,15 +78,6 @@
                  "Collaboration agile entre les différentes parties prenantes de l'entreprise."
               ]
            }
-        ],
-        "timebar":[
-           "",
-           "lower",
-           "upper",
-           "",
-           "",
-           "",
-           ""
         ]
      },
      {
@@ -135,15 +108,6 @@
                  "Maintenance du site existant en php."
               ]
            }
-        ],
-        "timebar":[
-           "",
-           "",
-           "lower",
-           "upper",
-           "",
-           "",
-           ""
         ]
      },
      {
@@ -164,40 +128,10 @@
                  "Utilisation des langages : JavaScript, PHP, SQL et framework bootstrap."
               ]
            }
-        ],
-        "timebar":[
-           "",
-           "",
-           "",
-           "",
-           "upper",
-           "",
-           ""
         ]
      },
      {
-        "date":2018,
-        "content":[
-           {
-              "logo":{
-                 "src":"https://image-parcours.copainsdavant.com/image/750/1760127760/4147743.png",
-                 "alt":"Logo Lycée Parc des Loges"
-              },
-              "title":"BTS Services Informatiques aux Organisations",
-              "date":"2ans - 2018/2020",
-              "subtitle":"Lycée Parc des Loges, Evry",
-              "description":""
-           }
-        ],
-        "timebar":[
-           "",
-           "",
-           "",
-           "lower",
-           "full",
-           "full",
-           "full"
-        ]
+        "date":2018
      }
   ],
   "schools": [
@@ -210,7 +144,16 @@
         "title":"BTS Services Informatiques aux Organisations",
         "date":"2ans - 2018/2020",
         "subtitle":"Lycée Parc des Loges, Evry"
-      }
+      },
+      "timebar":[
+        "",
+        "",
+        "",
+        "lower",
+        "full",
+        "upper",
+        ""
+     ]
     },
     {
       "content": {
@@ -221,7 +164,16 @@
         "title":"Bachelor Développeur web et mobile",
         "date":"1an - 2020/2021",
         "subtitle":"MyDigitalSchool, Angers"
-      }
+      },
+      "timebar":[
+        "",
+        "",
+        "lower",
+        "upper",
+        "",
+        "",
+        ""
+     ]
     },
     {
       "content": {
@@ -232,7 +184,16 @@
         "title":"Mastère Manager de projets innovants",
         "date":"2ans - 2021/2023",
         "subtitle":"LaDigitalSchool, Brest"
-      }
+      },
+      "timebar":[
+        "lower",
+        "full",
+        "upper",
+        "",
+        "",
+        "",
+        ""
+     ]
     }
   ]
 }
