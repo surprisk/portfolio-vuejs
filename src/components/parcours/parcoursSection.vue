@@ -40,7 +40,7 @@ export default {
 </script>
 
 <template>
-  <div class="container section">
+  <div id="parcours_section" class="container section">
     <h2 class="home-title">🚩 Parcours</h2>
     <div class="parcours">
       <item

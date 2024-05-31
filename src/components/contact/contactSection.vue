@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-  <div class="contact-section-wrapper section">
+  <div id="contact_section" class="contact-section-wrapper section">
     <div class="container">
       <h2 class="home-title">📨 Contact</h2>
       <div class="contact">

@@ -5,12 +5,40 @@ export default {
   data() {
     return {
       isOpened: false,
-      scroll: false
+      scroll: false,
+      currentSection: false,
+      sections: ['#a_propos_section', '#parcours_section', '#projects_section', '#contact_section'],
     }
   },
   methods: {
     handleScroll() {
       this.scroll = window.scrollY > 50
+      this.currentSection = this.getCurrentSection()?.id
+    },
+    scrollToAnElement(element) {
+      const elementDOM = document.querySelector(element)
+      const barDOM = document.querySelector('nav.navbar')
+
+      const elementTop = elementDOM.getBoundingClientRect().top
+      const barHeight = barDOM.offsetHeight
+
+      window.scrollTo({
+        top: window.scrollY + elementTop - barHeight,
+        behavior: 'smooth'
+      })
+    },
+    getCurrentSection(){
+      const barDOM = document.querySelector('nav.navbar')
+      const barHeight = barDOM.offsetHeight
+
+      return this.sections.map((section) => { 
+        return {
+          id: section,
+          top: document.querySelector(section).getBoundingClientRect().top
+        }
+      })
+      .reverse()
+      .find(s => s.top - barHeight <= 0)
     }
   },
   created() {
@@ -30,10 +58,10 @@ export default {
       </div>
       <div class="navbar-menu" :class="{ 'is-opened': isOpened }">
         <ul>
-          <li><a href="#">A propos</a></li>
-          <li><a href="#">Parcours</a></li>
-          <li><a href="#">Projets</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#" :class="{active: this.currentSection == '#a_propos_section' }" @click.prevent="this.scrollToAnElement('#a_propos_section')">A propos</a></li>
+          <li><a href="#" :class="{active: this.currentSection == '#parcours_section' }" @click.prevent="this.scrollToAnElement('#parcours_section')">Parcours</a></li>
+          <li><a href="#" :class="{active: this.currentSection == '#projects_section' }" @click.prevent="this.scrollToAnElement('#projects_section')">Projets</a></li>
+          <li><a href="#" :class="{active: this.currentSection == '#contact_section' }" @click.prevent="this.scrollToAnElement('#contact_section')">Contact</a></li>
         </ul>
       </div>
       <div
@@ -82,7 +110,12 @@ export default {
   color: rgb(var(--nav-color));
 }
 
-.navbar .navbar-menu ul li a:is(.active, :focus, :hover, :active) {
+.navbar .navbar-menu ul li a {
+  transition: .2s linear;
+  border-bottom: 1px transparent solid;
+}
+
+.navbar .navbar-menu ul li a:is(.active, :hover) {
   color: rgb(var(--nav-active));
   border-bottom: 1px rgb(var(--nav-active)) solid;
 }

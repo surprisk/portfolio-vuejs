@@ -36,7 +36,7 @@ export default {
 </script>
 
 <template>
-  <div class="container section">
+  <div id="projects_section" class="container section">
     <h2 class="home-title">💻 Projets</h2>
     <searchbar @onSearch="searchHandler" />
     <projectFilter :tags="this.tags" @onFilter="filterHandler" />
