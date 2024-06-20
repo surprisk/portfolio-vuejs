@@ -1,8 +1,8 @@
 <script>
-import projectTag from '@/components/project/ProjectTag.vue'
+import projectTag from '@/components/project/projectTag.vue'
 
 export default {
-  data(){
+  data() {
     return {
       stateHandler: []
     }
@@ -14,25 +14,32 @@ export default {
     }
   },
   components: {
-    projectTag,
+    projectTag
   },
   methods: {
-    clickHandler(position){
+    clickHandler(position) {
       const state = !this.stateHandler[position]
-      this.stateHandler[position] = state;
+      this.stateHandler[position] = state
       this.$emit('onFilter', position, state)
     }
   },
-  mounted(){
-    for (let index = 0; index < this.tags.length; index++)
-      this.stateHandler.push(false)
+  mounted() {
+    for (let index = 0; index < this.tags.length; index++) this.stateHandler.push(false)
   }
 }
 </script>
 <template>
   <div class="project-filter" @input="$emit('onSearch', $event)">
     <div class="project-filter-tags">
-      <projectTag v-for="t,i in this.tags" :key="t" @click="this.clickHandler(i)" class="tag-button" :class="{active: this.stateHandler[i]}" :color="t.color">{{ t.name }}</projectTag>
+      <projectTag
+        v-for="(t, i) in this.tags"
+        :key="t"
+        @click="this.clickHandler(i)"
+        class="tag-button"
+        :class="{ active: this.stateHandler[i] }"
+        :color="t.color"
+        >{{ t.name }}</projectTag
+      >
     </div>
   </div>
 </template>
@@ -44,17 +51,16 @@ export default {
   margin: auto auto 64px auto;
 }
 
-.project-filter .project-filter-tags{
+.project-filter .project-filter-tags {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 16px;
 }
 
-.tag-button{
+.tag-button {
   cursor: pointer;
   user-select: none;
-  transition: .1s ease-out;
+  transition: 0.1s ease-out;
 }
-
 </style>

@@ -115,7 +115,7 @@ export default {
   border-bottom: 1px transparent solid;
 }
 
-.navbar .navbar-menu ul li a:is(.active, :hover) {
+.navbar .navbar-menu ul li a:is(.active, :active, :focus, :hover) {
   color: rgb(var(--nav-active));
   border-bottom: 1px rgb(var(--nav-active)) solid;
 }

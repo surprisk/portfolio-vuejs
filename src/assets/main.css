@@ -11,18 +11,23 @@
   --nav-color: 255, 251, 245;
   --nav-active: 247, 239, 229;
 
+  --gradient-background: 119, 67, 219;
   --gradient-primary: 119, 67, 219;
   --gradient-secondary: 195, 172, 208;
   --gradient-third: 255, 251, 245;
 
   --card-background: 247, 239, 229;
 
+  --parcours-background: none;
   --parcours-dot-primary: 119, 67, 219;
   --parcours-dot-secondary: 195, 172, 208;
   --parcours-active-item: 195, 172, 208;
 
   --project-nav: 119, 67, 219;
   --project-active: 195, 172, 208;
+
+  --project-singlepage-background: 255, 251, 245;
+  --project-singlepage-color: 33, 47, 61;
 
   --font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu;
   --banner-color: 255, 251, 245;

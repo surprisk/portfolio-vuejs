@@ -1,8 +1,10 @@
 <script>
 import a_propos from '@/components/a_propos/a_proposSection.vue'
 import parcours from '@/components/parcours/parcoursSection.vue'
-import projects from '@/components/project/ProjectSection.vue'
+import projects from '@/components/project/projectSection.vue'
 import contact from '@/components/contact/contactSection.vue'
+import navNavbar from '@/components/nav/navNavbar.vue'
+import navFooter from '@/components/nav/navFooter.vue'
 
 export default {
   data() {
@@ -11,7 +13,7 @@ export default {
       talentHandler: 0
     }
   },
-  components: { projects, a_propos, parcours, contact },
+  components: { navNavbar, navFooter, projects, a_propos, parcours, contact },
   computed: {
     getCurrentTalent() {
       return this.talents[this.talentHandler]
@@ -42,19 +44,23 @@ export default {
 </script>
 
 <template>
-  <div class="home-banner">
-    <div class="banner-content container">
-      <p>Samuel Brosse</p>
-      <p>{{ this.getCurrentTalent }}</p>
+  <header>
+    <navNavbar />
+    <div class="home-banner">
+      <div class="banner-content container">
+        <p>Samuel Brosse</p>
+        <p>{{ this.getCurrentTalent }}</p>
+      </div>
+      <div class="mouse" @click="scrollToAnElement('#a_propos_section')"></div>
     </div>
-    <div class="mouse" @click="scrollToAnElement('#a_propos_section')"></div>
-  </div>
+  </header>
   <main>
     <a_propos />
     <parcours />
     <projects />
     <contact />
   </main>
+  <navFooter />
 </template>
 
 <style>
@@ -65,7 +71,7 @@ export default {
   width: 100vw;
   height: 800px;
 
-  background: rgb(119, 67, 219);
+  background: rgb(var(--gradient-background));
   background: radial-gradient(
     circle,
     rgba(var(--gradient-primary), 1) 60%,

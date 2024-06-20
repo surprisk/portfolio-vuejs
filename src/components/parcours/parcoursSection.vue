@@ -40,35 +40,41 @@ export default {
 </script>
 
 <template>
-  <div id="parcours_section" class="container section">
-    <h2 class="home-title">🚩 Parcours</h2>
-    <div class="parcours">
-      <item
-        v-for="(p, i) in this.db.parcours"
-        :key="p"
-        :id="`experience_${p.date}`"
-        @timebar="timebarHandler"
-        :position="i"
-        :hasContent="!!p.content"
-      >
-        <template #content>
-          <experience v-for="c in p.content" :key="c" :e="c"/>
-        </template>
-        <template #date>{{ p.date }}</template>
-        <template #timebar>
-          <span class="timebar" :class="[this.timebar.current[i]]"></span>
-        </template>
-      </item>
-      <span class="start-dot"></span>
-      <span class="end-dot"></span>
-    </div>
-    <div class="schools">
-      <school v-for="c, i in this.db.schools" :key="c" :s="c.content" :position="i" @timebar="timebarHandler" :state="this.timebar.state[i]"/>
+  <div class="parcours-section-wrapper">
+    <div id="parcours_section" class="container section">
+      <h2 class="home-title">🚩 Parcours</h2>
+      <div class="parcours">
+        <item
+          v-for="(p, i) in this.db.parcours"
+          :key="p"
+          :id="`experience_${p.date}`"
+          @timebar="timebarHandler"
+          :position="i"
+          :hasContent="!!p.content"
+        >
+          <template #content>
+            <experience v-for="c in p.content" :key="c" :e="c"/>
+          </template>
+          <template #date>{{ p.date }}</template>
+          <template #timebar>
+            <span class="timebar" :class="[this.timebar.current[i]]"></span>
+          </template>
+        </item>
+        <span class="start-dot"></span>
+        <span class="end-dot"></span>
+      </div>
+      <div class="schools">
+        <school v-for="c, i in this.db.schools" :key="c" :s="c.content" :position="i" @timebar="timebarHandler" :state="this.timebar.state[i]"/>
+      </div>
     </div>
   </div>
 </template>
 
 <style>
+.parcours-section-wrapper {
+  background-color: rgba(var(--parcours-background));
+}
+
 .parcours {
   position: relative;
   padding: 26px 0;
