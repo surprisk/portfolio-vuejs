@@ -4,12 +4,112 @@ import projectComponent from '@/components/project/projectComponent.vue'
 import projectTag from '@/components/project/projectTag.vue'
 import projectFilter from '@/components/project/projectFilter.vue'
 import IconLucide from '../icons/IconLucide.vue'
-import { projects, tags } from '@/assets/database.json'
 
 export default {
   data() {
     return {
-      tags: tags,
+      projects: [
+        {
+          image: {
+            class: 'cover',
+            src: 'https://img.freepik.com/free-photo/sunset-silhouettes-trees-mountains-generative-ai_169016-29371.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1714003200&semt=ais'
+          },
+          title: 'Jaxa',
+          tags: [4],
+          route: { name: 'Jaxa' }
+        },
+        {
+          image: {
+            class: 'cover',
+            src: 'https://img.freepik.com/free-photo/sunset-silhouettes-trees-mountains-generative-ai_169016-29371.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1714003200&semt=ais'
+          },
+          title: 'Anycoast',
+          tags: [4],
+          route: { name: 'Anycoast' }
+        },
+        {
+          image: {
+            class: 'cover'
+          },
+          title: 'SavEat',
+          tags: [0, 1, 3, 4, 6],
+          route: { name: 'SavEat' }
+        },
+        {
+          image: {
+            class: 'cover',
+            src: 'https://img.freepik.com/free-photo/sunset-silhouettes-trees-mountains-generative-ai_169016-29371.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1714003200&semt=ais'
+          },
+          title: 'QuerYT',
+          tags: [4],
+          route: { name: 'QuerYT' }
+        },
+        {
+          image: {
+            class: 'cover',
+            src: 'https://img.freepik.com/free-photo/sunset-silhouettes-trees-mountains-generative-ai_169016-29371.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1714003200&semt=ais'
+          },
+          title: 'BirdAPI',
+          tags: [4],
+          route: { name: 'BirdAPI' }
+        },
+        {
+          image: {
+            class: 'cover',
+            src: 'https://img.freepik.com/free-photo/sunset-silhouettes-trees-mountains-generative-ai_169016-29371.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1714003200&semt=ais'
+          },
+          title: 'NodeJSON',
+          tags: [0, 1, 2, 4],
+          route: { name: 'NodeJSON' }
+        },
+        {
+          image: {
+            class: 'cover',
+            src: 'https://img.freepik.com/free-photo/sunset-silhouettes-trees-mountains-generative-ai_169016-29371.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1714003200&semt=ais'
+          },
+          title: 'Serveur Linux Maison',
+          tags: [8],
+          route: { name: 'Homelab' }
+        }
+      ],
+      tags: [
+        {
+          color: 'rgb(229, 83, 44)',
+          name: 'HTML'
+        },
+        {
+          color: 'rgb(61, 157, 215)',
+          name: 'CSS'
+        },
+        {
+          color: 'rgb(248, 224, 38)',
+          name: 'Javascript'
+        },
+        {
+          color: 'rgb(72, 186, 135)',
+          name: 'VueJS'
+        },
+        {
+          color: 'rgb(148, 199, 70)',
+          name: 'NodeJS'
+        },
+        {
+          color: 'rgb(8, 8, 8)',
+          name: 'Symfony'
+        },
+        {
+          color: 'rgb(8, 8, 8)',
+          name: 'MySQL'
+        },
+        {
+          color: 'rgb(8, 8, 8)',
+          name: 'MongoDB'
+        },
+        {
+          color: 'rgb(8, 8, 8)',
+          name: 'Linux'
+        }
+      ],
       searchText: '',
       filterList: []
     }
@@ -25,7 +125,7 @@ export default {
   },
   computed: {
     getProjectsHandled() {
-      let deepProjects = [...projects]
+      let deepProjects = [...this.projects]
 
       return deepProjects.filter(
         (p) =>
