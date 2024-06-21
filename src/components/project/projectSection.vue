@@ -142,6 +142,20 @@ export default {
 <template>
   <div id="projects_section" class="container section">
     <h2 class="home-title">💻 Projets</h2>
+    <div
+      style="
+        font-style: italic;
+        font-size: 0.8em;
+        text-align: center;
+        margin-bottom: 32px;
+        padding: 8px;
+        color: #fff;
+        background-color: #d98880;
+      "
+    >
+      La section est en cours de réalisation. Les projets affichés ont bien été réalisés par mes
+      soins, n'hésitez pas à me contact pour obtenir des détails sur leur réalisation.
+    </div>
     <searchbar @onSearch="searchHandler" />
     <projectFilter :tags="this.tags" @onFilter="filterHandler" />
     <TransitionGroup name="projects" tag="div" class="projects">
