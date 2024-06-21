@@ -154,7 +154,7 @@ export default {
       "
     >
       La section est en cours de réalisation. Les projets affichés ont bien été réalisés par mes
-      soins, n'hésitez pas à me contact pour obtenir des détails sur leur réalisation.
+      soins, n'hésitez pas à me contacter pour obtenir des détails sur leur réalisation.
     </div>
     <searchbar @onSearch="searchHandler" />
     <projectFilter :tags="this.tags" @onFilter="filterHandler" />
