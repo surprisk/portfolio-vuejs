@@ -7,7 +7,7 @@ export default {
       isOpened: false,
       scroll: false,
       currentSection: false,
-      sections: ['#a_propos_section', '#parcours_section', '#projects_section', '#contact_section'],
+      sections: ['#a_propos_section', '#parcours_section', '#projects_section', '#contact_section']
     }
   },
   methods: {
@@ -27,18 +27,19 @@ export default {
         behavior: 'smooth'
       })
     },
-    getCurrentSection(){
+    getCurrentSection() {
       const barDOM = document.querySelector('nav.navbar')
       const barHeight = barDOM.offsetHeight
 
-      return this.sections.map((section) => { 
-        return {
-          id: section,
-          top: document.querySelector(section).getBoundingClientRect().top
-        }
-      })
-      .reverse()
-      .find(s => s.top - barHeight <= 0)
+      return this.sections
+        .map((section) => {
+          return {
+            id: section,
+            top: document.querySelector(section).getBoundingClientRect().top
+          }
+        })
+        .reverse()
+        .find((s) => s.top - barHeight <= 0)
     }
   },
   created() {
@@ -58,10 +59,38 @@ export default {
       </div>
       <div class="navbar-menu" :class="{ 'is-opened': isOpened }">
         <ul>
-          <li><a href="#" :class="{active: this.currentSection == '#a_propos_section' }" @click.prevent="this.scrollToAnElement('#a_propos_section')">A propos</a></li>
-          <li><a href="#" :class="{active: this.currentSection == '#parcours_section' }" @click.prevent="this.scrollToAnElement('#parcours_section')">Parcours</a></li>
-          <li><a href="#" :class="{active: this.currentSection == '#projects_section' }" @click.prevent="this.scrollToAnElement('#projects_section')">Projets</a></li>
-          <li><a href="#" :class="{active: this.currentSection == '#contact_section' }" @click.prevent="this.scrollToAnElement('#contact_section')">Contact</a></li>
+          <li>
+            <a
+              href="#"
+              :class="{ active: this.currentSection == '#a_propos_section' }"
+              @click.prevent="this.scrollToAnElement('#a_propos_section')"
+              >A propos</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              :class="{ active: this.currentSection == '#parcours_section' }"
+              @click.prevent="this.scrollToAnElement('#parcours_section')"
+              >Parcours</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              :class="{ active: this.currentSection == '#projects_section' }"
+              @click.prevent="this.scrollToAnElement('#projects_section')"
+              >Projets</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              :class="{ active: this.currentSection == '#contact_section' }"
+              @click.prevent="this.scrollToAnElement('#contact_section')"
+              >Contact</a
+            >
+          </li>
         </ul>
       </div>
       <div
@@ -111,7 +140,7 @@ export default {
 }
 
 .navbar .navbar-menu ul li a {
-  transition: .2s linear;
+  transition: 0.2s linear;
   border-bottom: 1px transparent solid;
 }
 
@@ -181,7 +210,7 @@ export default {
 
 @media screen and (max-width: 600px) {
   .navbar .navbar-menu {
-    position: absolute;
+    position: fixed;
 
     display: flex;
     justify-content: center;

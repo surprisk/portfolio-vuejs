@@ -12,6 +12,7 @@ import creditmutuelarkea from '@/assets/experiences/logo-creditmutuelarkea.webp'
 import netao from '@/assets/experiences/logo-netao.png'
 import promomatelas from '@/assets/experiences/logo-promomatelas.png'
 import sipej from '@/assets/experiences/logo-sipej.jpg'
+import enedis from '@/assets/experiences/logo-enedis.png'
 
 export default {
   data() {
@@ -170,7 +171,7 @@ export default {
             },
             {
               logo: {
-                src: '/src/assets/experiences/logo-enedis.png',
+                src: enedis,
                 alt: 'Logo Enedis'
               },
               title: 'Développeur web',
