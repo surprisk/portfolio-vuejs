@@ -12,7 +12,7 @@ export default {
     },
     hasContent: {
       type: Boolean,
-      required: true,
+      required: true
     }
   }
 }
@@ -26,9 +26,13 @@ export default {
           <slot name="content"></slot>
         </div>
       </Transition>
-      <span class="date-dot" :class="{ active: state }" @click="!this.hasContent || (this.state = !this.state)"></span>
+      <span
+        class="date-dot"
+        :class="{ active: state, noContent: !this.hasContent }"
+        @click="!this.hasContent || (this.state = !this.state)"
+      ></span>
     </div>
-    <span class="item-date">
+    <span class="item-date" :class="{ active: state }">
       <slot name="date"></slot>
     </span>
     <slot name="timebar"></slot>
@@ -61,6 +65,10 @@ export default {
   transition: 0.1s ease;
 }
 
+.parcours-item-line .parcours-item-wrapper .date-dot.noContent {
+  cursor: inherit;
+}
+
 .parcours-item-line .parcours-item-wrapper :is(.date-dot:hover, .date-dot.active)::before {
   opacity: 0;
 }
@@ -72,13 +80,13 @@ export default {
   top: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
-  animation: test 1s ease-out infinite;
-  -webkit-animation: test 1s ease-out infinite;
+  animation: heartbeat 1s ease-out infinite;
+  -webkit-animation: heartbeat 1s ease-out infinite;
   border-radius: 20px;
   opacity: 1;
 }
 
-@keyframes test {
+@keyframes heartbeat {
   from {
     width: 0;
     height: 0;
@@ -89,7 +97,7 @@ export default {
   }
 }
 
-@-webkit-keyframes test {
+@-webkit-keyframes heartbeat {
   from {
     width: 0;
     height: 0;
@@ -133,5 +141,24 @@ export default {
 .slide-fade-leave-to {
   transform: translateX(20px);
   opacity: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .parcours-item-line .parcours-item-wrapper {
+    width: 100%;
+    padding: 32px 0;
+  }
+
+  .parcours-item-line span.item-date.active {
+    display: none;
+  }
+
+  .parcours-item-line .parcours-item-wrapper .parcours-item {
+    padding: 32px;
+  }
+
+  .parcours-item-line .parcours-item-wrapper .date-dot.active:not(.noContent) {
+    left: 100%;
+  }
 }
 </style>

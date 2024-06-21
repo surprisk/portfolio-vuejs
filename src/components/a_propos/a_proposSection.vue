@@ -126,6 +126,7 @@ export default {
 
 @media screen and (max-width: 900px) {
   .a-propos {
+    justify-content: center;
     flex-wrap: wrap;
   }
 }

@@ -1,6 +1,4 @@
 <script>
-import { RouterLink, RouterView } from 'vue-router' // eslint-disable-line
-
 export default {
   data() {
     return {
@@ -64,6 +62,7 @@ export default {
               href="#"
               :class="{ active: this.currentSection == '#a_propos_section' }"
               @click.prevent="this.scrollToAnElement('#a_propos_section')"
+              @click="this.isOpened = false"
               >A propos</a
             >
           </li>
@@ -72,6 +71,7 @@ export default {
               href="#"
               :class="{ active: this.currentSection == '#parcours_section' }"
               @click.prevent="this.scrollToAnElement('#parcours_section')"
+              @click="this.isOpened = false"
               >Parcours</a
             >
           </li>
@@ -80,6 +80,7 @@ export default {
               href="#"
               :class="{ active: this.currentSection == '#projects_section' }"
               @click.prevent="this.scrollToAnElement('#projects_section')"
+              @click="this.isOpened = false"
               >Projets</a
             >
           </li>
@@ -88,8 +89,10 @@ export default {
               href="#"
               :class="{ active: this.currentSection == '#contact_section' }"
               @click.prevent="this.scrollToAnElement('#contact_section')"
-              >Contact</a
+              @click="this.isOpened = false"
             >
+              Contact
+            </a>
           </li>
         </ul>
       </div>

@@ -10,7 +10,7 @@ export default {
       type: Object,
       required: true
     }
-  },
+  }
 }
 </script>
 
@@ -77,5 +77,10 @@ export default {
   list-style: square;
   font-size: 0.9em;
 }
-
+@media screen and (max-width: 900px) {
+  .experience {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 </style>

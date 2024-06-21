@@ -159,4 +159,10 @@ export default {
 .home-title {
   margin-bottom: 64px;
 }
+
+@media screen and (max-width: 600px) {
+  .home-banner .banner-content p:last-child {
+    font-size: 2.5em;
+  }
+}
 </style>

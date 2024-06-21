@@ -3,6 +3,20 @@ export default {
   data() {
     return {}
   },
+  methods: {
+    scrollToAnElement(element) {
+      const elementDOM = document.querySelector(element)
+      const barDOM = document.querySelector('nav.navbar')
+
+      const elementTop = elementDOM.getBoundingClientRect().top
+      const barHeight = barDOM.offsetHeight
+
+      window.scrollTo({
+        top: window.scrollY + elementTop - barHeight,
+        behavior: 'smooth'
+      })
+    }
+  },
   props: {
     state: {
       type: Boolean,
@@ -17,13 +31,6 @@ export default {
       required: true
     }
   }
-  // watch: {
-  //   state: {
-  //     handler(s) {
-  //       this.$emit('timebar', this.position, s)
-  //     }
-  //   }
-  // }
 }
 </script>
 
@@ -31,7 +38,12 @@ export default {
   <div
     class="school"
     :class="{ active: state }"
-    @click="this.$emit('timebar', this.position, state)"
+    @click="
+      () => {
+        this.$emit('timebar', this.position, state)
+        this.scrollToAnElement('#parcours_section')
+      }
+    "
   >
     <div class="school-logo">
       <slot>
