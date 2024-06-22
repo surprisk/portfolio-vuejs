@@ -131,7 +131,7 @@ export default {
         (p) =>
           p.title.toLowerCase().trim().includes(this.searchText) &&
           (!this.filterList.length > 0 ||
-            p.tags.some((t) => this.filterList.includes(this.tags[t])))
+            this.filterList.every((t) => p.tags.includes(this.tags.indexOf(t))))
       )
     }
   },
@@ -187,13 +187,21 @@ export default {
   gap: 32px;
 }
 
+.projects-move, /* apply transition to moving elements */
 .projects-enter-active,
 .projects-leave-active {
   transition: all 0.5s ease;
 }
+
 .projects-enter-from,
 .projects-leave-to {
   opacity: 0;
   transform: translateX(30px);
+}
+
+/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+.projects-leave-active {
+  position: absolute;
 }
 </style>
