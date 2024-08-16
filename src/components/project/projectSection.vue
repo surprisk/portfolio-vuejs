@@ -166,7 +166,9 @@ export default {
       >
         <template #image>
           <img v-if="p.image.src" v-bind="p.image" />
-          <p v-else><IconLucide icon="FolderClosed" iconSize="2em" widthStroke="2px" /></p>
+          <p v-else>
+            <IconLucide icon="FolderClosed" iconSize="2em" widthStroke="2px" colorStroke="white" />
+          </p>
         </template>
         <template #title>{{ p.title }}</template>
         <template #tag>

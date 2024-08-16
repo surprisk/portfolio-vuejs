@@ -24,9 +24,7 @@ export default {
     <h2 class="home-title">🙎🏼 A propos</h2>
     <div class="a-propos">
       <div class="a-propos-image">
-        <img
-          src="https://media.licdn.com/dms/image/C4E03AQG5fQDtNlk2tg/profile-displayphoto-shrink_800_800/0/1645607168961?e=1719446400&v=beta&t=GLwIKogCS1JAYEAV78GDKtYgeNaHZl2nZXtH9ITlWFE"
-        />
+        <img src="@/assets/avatar.jpg" />
       </div>
       <div class="a-propos-content">
         <h3>L'informatique, de la magie à la passion</h3>
